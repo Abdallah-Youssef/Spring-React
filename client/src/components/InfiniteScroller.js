@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import debounce from 'lodash.debounce';
-import { Loading } from './Loading';
 
 
 
