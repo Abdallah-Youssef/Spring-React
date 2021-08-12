@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import debounce from 'lodash.debounce';
+import { Loading } from './Loading';
 
 
 
@@ -9,8 +10,7 @@ const InfiniteScroller = () => {
 
 
     useEffect(() => {
-        console.log("Hello???");
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', debounce(handleScroll, 500));
 
         // Get initial data
         fetch("http://localhost:8080/list", { method: "GET" })
@@ -23,13 +23,11 @@ const InfiniteScroller = () => {
 
     useEffect(() => {
         if (isFetching){
-            const scrollTop = document.documentElement.scrollTop;
             let newWords = [...words]
             fetch("http://localhost:8080/list", { method: "GET" })
             .then(response => response.json())
             .then(list => {
                 setWords(newWords.concat(list))
-                window.scroll(0, scrollTop)
                 setIsFetching(false)
             })
         }
@@ -50,7 +48,6 @@ const InfiniteScroller = () => {
                     </h1>))
             }
 
-            {isFetching && <h1>Loading....</h1>}
         </div>
     )
 }
