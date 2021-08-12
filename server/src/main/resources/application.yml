@@ -7,10 +7,9 @@ spring:
     open-in-view: false
     database: default
     database-platform: org.hibernate.dialect.H2Dialect
-    # hibernate:
-    #   ddl-auto: update
+    hibernate:
+      ddl-auto: none
   datasource:
-    #url: jdbc:h2:mem:testdb
     driverClassName: org.h2.Driver
     url: jdbc:h2:file:./db/server;AUTO_SERVER=TRUE;
     username: sa
