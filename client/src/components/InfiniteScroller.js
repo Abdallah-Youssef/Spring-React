@@ -1,34 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import debounce from 'lodash.debounce';
+import useFetch from '../hooks/useFetch';
 
 
 
 const InfiniteScroller = () => {
-    const [words, setWords] = useState([]);
+    const {words, pushNewWords} = useFetch("http://localhost:8080/list");
     const [isFetching, setIsFetching] = useState(false);
 
 
     useEffect(() => {
         window.addEventListener('scroll', debounce(handleScroll, 500));
-
-        // Get initial data
-        fetch("http://localhost:8080/list", { method: "GET" })
-            .then(response => response.json())
-            .then(list => {
-                setWords(list)
-            });
-
+        pushNewWords()
     }, [])
 
     useEffect(() => {
         if (isFetching){
-            let newWords = [...words]
-            fetch("http://localhost:8080/list", { method: "GET" })
-            .then(response => response.json())
-            .then(list => {
-                setWords(newWords.concat(list))
-                setIsFetching(false)
-            })
+            setIsFetching(false)
+            pushNewWords()
         }
 
     }, [isFetching])
@@ -38,6 +27,7 @@ const InfiniteScroller = () => {
         if (window.innerHeight + Math.ceil(document.documentElement.scrollTop) < document.documentElement.offsetHeight) return;
         setIsFetching(true)
     }
+
     return (
         <div>
             {
