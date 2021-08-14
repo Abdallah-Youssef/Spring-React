@@ -1,11 +1,15 @@
 import React from 'react'
-
+import './Welcome.css'
 export const Welcome = ({history}) => {
     return (
-        <div>
+        <div className="welcome">
+            <h1>
             Hello
+            </h1>
             <button onClick={()=> history.push("/list")}>
+                <h1>
                 Go to the list
+                </h1>
             </button>
         </div>
     )

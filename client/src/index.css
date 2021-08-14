@@ -5,9 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* background-image: url("/src/assets/sherbeeny.jpg"); */
 }
 
-.App{
+.App, #root, body, html{
   height: 100%;
 }
 
