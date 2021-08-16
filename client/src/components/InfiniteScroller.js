@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import CircularProgress from '@material-ui/core/CircularProgress';
 import debounce from 'lodash.debounce';
 import useFetch from '../hooks/useFetch';
-
+import './InfiniteScroller.css'
 
 
 const InfiniteScroller = () => {
-    const {words, pushNewWords} = useFetch("http://localhost:8080/list");
+    const {words, loading, pushNewWords} = useFetch("http://localhost:8080/list");
     const [isFetching, setIsFetching] = useState(false);
 
 
@@ -37,6 +38,8 @@ const InfiniteScroller = () => {
                     </h1>))
             }
 
+        {loading ? <CircularProgress /> : <h1 className="no-more-data"> No more Data </h1>}
+        
         </div>
     )
 }
