@@ -1,6 +1,6 @@
 import React from 'react'
 import './Welcome.css'
-export const Welcome = ({history}) => {
+const Welcome = ({history}) => {
     return (
         <div className="welcome">
             <h1>
@@ -14,3 +14,4 @@ export const Welcome = ({history}) => {
         </div>
     )
 }
+export default Welcome
