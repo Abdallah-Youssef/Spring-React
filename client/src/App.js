@@ -3,6 +3,7 @@ import InfiniteScroller from './components/InfiniteScroller';
 import { Route, Switch } from 'react-router-dom';
 import { Welcome } from './components/Welcome';
 function App() {
+  return (<h1> Hello world</h1>)
   return (
     <div className="App">
       <Switch>
