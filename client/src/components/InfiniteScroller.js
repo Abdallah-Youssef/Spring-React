@@ -35,9 +35,9 @@ const InfiniteScroller = () => {
             {
                 words.map((word, i) => (
                     <li key={i}>
-                        <h1>
+                        <h2>
                         {word}
-                        </h1>
+                        </h2>
                     </li>))
             }
 
