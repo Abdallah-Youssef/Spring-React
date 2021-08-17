@@ -12,8 +12,8 @@ const useFetch = (url) => {
             if (list.length === 0)
                 setLoading(false)
             else {
-                console.log(words);
-                console.log(list);
+                // console.log(words);
+                // console.log(list);
                 setWords(words.concat(list))
             }
             

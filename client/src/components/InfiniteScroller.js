@@ -30,17 +30,23 @@ const InfiniteScroller = () => {
     }
 
     return (
-        <div>
+        <>
+            <ul>
             {
                 words.map((word, i) => (
-                    <h1 key={i}>
-                        {i} : {word}
-                    </h1>))
+                    <li key={i}>
+                        <h1>
+                        {word}
+                        </h1>
+                    </li>))
             }
 
-        {loading ? <CircularProgress /> : <h1 className="no-more-data"> No more Data </h1>}
         
-        </div>
+        </ul>
+        {loading ? <CircularProgress /> : <h1 className="no-more-data"> No more Data </h1>}
+
+        </>
+        
     )
 }
 
