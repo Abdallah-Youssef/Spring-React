@@ -1,11 +1,10 @@
 import {Selector, ClientFunction} from 'testcafe'
-fixture('testcafe demo').page('http://localhost:3000')
+fixture('testcafe demo').page('http://localhost:3000/list')
 
 const getScrollTop = ClientFunction(() => window.scrollY);
 
 test('Loads new words after scrolling', async t => {
     await t
-    .click("button")
     .scroll(0,200)
     .wait(3000)
     
@@ -16,7 +15,6 @@ test('Loads new words after scrolling', async t => {
 })
 
 test('Shows "No more Data" after scrolling', async t => {
-    await t.click("button")
 
     for (let i = 0;i < 7;i++){
         const ul = await Selector("ul")
