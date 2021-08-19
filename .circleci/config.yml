@@ -21,4 +21,7 @@ jobs:
           command: |
             docker login -e $DOCKER_HUB_EMAIL -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD
             docker ps 
-            docker images
+            docker images 
+            docker tag dockerapp_react:latest $DOCKER_HUB_USER_ID/react:test
+            docker push $DOCKER_HUB_USER_ID/react:test
+            docker push $DOCKER_HUB_USER_ID/springboot:test
