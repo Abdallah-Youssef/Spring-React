@@ -7,6 +7,6 @@ services:
     depends_on: 
       - server
   server:
-    image: factions:0.0.1-SNAPSHOT
+    image: abdallahyossf/springboot:test
     ports: 
       - "8080:8080" 
