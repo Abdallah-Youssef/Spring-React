@@ -26,3 +26,12 @@ or by id\
 *   Install testcafe: `npm install -g testcafe`
 *   Start the react app: `npm run start`
 *   Navigate to the componentes directory, then run: `npx testcafe chrome  .\testCafeTest.js`
+
+
+------------------
+## Docker images for the front end and backend
+
+------------------
+## CircleCI to automatically update and push images to DockerHub
+
+
